@@ -54,16 +54,6 @@ app.put("/dailyt/complete/:id", async (req, res) => {
   res.json(dailyt);
 });
 
-// app.put("/dailyt/update/:id", async (req, res) => {
-//   const dailyt = await Daily.findById(req.params.id);
-
-//   dailyt.complete = !dailyt.complete;
-
-//   dailyt.save();
-
-//   res.json(dailyt);
-// });
-
 app.listen(3000, () => {
   console.log("Backend server is running! Hola");
 });
