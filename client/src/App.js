@@ -33,6 +33,16 @@ function App() {
     );
   };
 
+  const deleteDaily = async (id) => {
+    const data = await fetch(API_BASE + "/dailyt/delete/" + id, {
+      method: "DELETE",
+    }).then((res) => res.json());
+
+    setDailyt((dailyt) =>
+      dailyt.filter((daily) => daily._id !== data.result._id)
+    );
+  };
+
   return (
     <div className="App">
       <h1>Hola, Margot!</h1>
@@ -49,7 +59,12 @@ function App() {
 
             <div className="text">{daily.text}</div>
 
-            <div className="delete-dailyt">x</div>
+            <div
+              className="delete-dailyt"
+              onClick={() => deleteDaily(daily._id)}
+            >
+              x
+            </div>
           </div>
         ))}
       </div>
