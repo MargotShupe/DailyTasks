@@ -1,4 +1,24 @@
+import { useEffect, useState } from "react";
+const API_BASE = "http://localhost:3000";
+
 function App() {
+  const [dailyt, setDailyt] = useState([]);
+  const [popupActive, setPopupActive] = useState(false);
+  const [newDaily, setNewDaily] = useState("");
+
+  useEffect(() => {
+    GetDailyt();
+
+    console.log(dailyt);
+  }, []);
+
+  const GetDailyt = () => {
+    fetch(API_BASE + "/dailyt")
+      .then((res) => res.json())
+      .then((data) => setDailyt(data))
+      .catch((err) => console.error("Error: ", err));
+  };
+
   return (
     <div className="App">
       <h1>Hola, Margot!</h1>
