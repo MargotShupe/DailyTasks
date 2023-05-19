@@ -43,6 +43,25 @@ function App() {
     );
   };
 
+  const addDaily = async () => {
+    const data = await fetch(API_BASE + "/dailyt/new", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: newDaily,
+      }),
+    }).then((res) => res.json());
+
+    //console.log(data);
+
+    setDailyt([...dailyt, data]);
+
+    setPopupActive(false);
+    setNewDaily("");
+  };
+
   return (
     <div className="App">
       <h1>Hola, Margot!</h1>
@@ -68,6 +87,32 @@ function App() {
           </div>
         ))}
       </div>
+
+      <div className="addPopup" onClick={() => setPopupActive(true)}>
+        +
+      </div>
+      {popupActive ? (
+        <div className="popup">
+          <div className="closePopup" onClick={() => setPopupActive(false)}>
+            x
+          </div>
+          <div className="content">
+            <h3>Add Task</h3>
+
+            <input
+              type="text"
+              className="add-daily-input"
+              onChange={(e) => setNewDaily(e.target.value)}
+              value={newDaily}
+            />
+            <div className="button" onClick={addDaily}>
+              Create Task
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 }
