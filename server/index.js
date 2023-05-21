@@ -2,12 +2,17 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+};
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/react-daily", {
+  .connect(process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/react-daily", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -44,10 +49,21 @@ app.delete("/dailyt/delete/:id", async (req, res) => {
 });
 
 //testing by adding the id number in the localhost
-app.put("/dailyt/complete/:id", async (req, res) => {
+//testing const completeDaily with get request to fix error in cosole
+// app.get("/dailyt/complete/:id", async (req, res) => {
+//   const dailyt = await Daily.findById(req.params.id);
+
+//   dailyt.complete = !dailyt.complete;
+
+//   dailyt.save();
+
+//   res.json(dailyt);
+// });
+
+app.put("/dailyt/update/:id", async (req, res) => {
   const dailyt = await Daily.findById(req.params.id);
 
-  dailyt.complete = !dailyt.complete;
+  dailyt.text = req.body.text;
 
   dailyt.save();
 
