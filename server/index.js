@@ -70,6 +70,6 @@ app.put("/dailyt/update/:id", async (req, res) => {
   res.json(dailyt);
 });
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("Backend server is running! Hola");
 });
