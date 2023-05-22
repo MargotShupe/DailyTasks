@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-const API_BASE = "http://localhost:3001";
+const API_BASE = "https://mern-deploy1-backend.onrender.com";
+//after deploying your backend you have to now use the link from render
+//instead of "http://localhost:3001"
 
 function App() {
   const [dailyt, setDailyt] = useState([]);
