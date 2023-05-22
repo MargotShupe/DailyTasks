@@ -4,8 +4,9 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 
+//after deploying frontend replace the localhost with the new http
 const corsOptions = {
-  origin: "http://localhost:3000",
+  origin: "https://mern-deploy1-frontend.onrender.com",
 };
 
 app.use(express.json());
