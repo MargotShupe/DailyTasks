@@ -19,21 +19,21 @@ function App() {
       .catch((err) => console.error("Error: ", err));
   };
 
-  // const completeDaily = async (id) => {
-  //   const data = await fetch(API_BASE + "/dailyt/complete/" + id).then((res) =>
-  //     res.json()
-  //   );
+  const completeDaily = async (id) => {
+    const data = await fetch(API_BASE + "/dailyt/complete/" + id).then((res) =>
+      res.json()
+    );
 
-  //   setDailyt((dailyt) =>
-  //     dailyt.map((daily) => {
-  //       if (daily._id === data._id) {
-  //         daily.complete = data.complete;
-  //       }
+    setDailyt((dailyt) =>
+      dailyt.map((daily) => {
+        if (daily._id === data._id) {
+          daily.complete = data.complete;
+        }
 
-  //       return daily;
-  //     })
-  //   );
-  // };
+        return daily;
+      })
+    );
+  };
 
   const deleteDaily = async (id) => {
     const data = await fetch(API_BASE + "/dailyt/delete/" + id, {
