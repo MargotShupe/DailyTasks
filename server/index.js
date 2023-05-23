@@ -52,13 +52,13 @@ app.delete("/dailyt/delete/:id", async (req, res) => {
 //testing by adding the id number in the localhost
 //testing const completeDaily with get request to fix error in cosole
 app.get("/dailyt/complete/:id", async (req, res) => {
-  const daily = await Daily.findById(req.params.id);
+  const dailyt = await Daily.findById(req.params.id);
 
-  daily.complete = !daily.complete;
+  dailyt.complete = !dailyt.complete;
 
-  daily.save();
+  dailyt.save();
 
-  res.json(daily);
+  res.json(dailyt);
 });
 
 // app.put("/dailyt/update/:id", async (req, res) => {
