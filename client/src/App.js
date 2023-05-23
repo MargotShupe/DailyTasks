@@ -20,9 +20,9 @@ function App() {
   };
 
   const completeDaily = async (id) => {
-    const data = await fetch(API_BASE + "/dailyt/complete/" + id, {
-      method: "GET",
-    }).then((res) => res.json());
+    const data = await fetch(API_BASE + "/dailyt/complete/" + id).then((res) =>
+      res.json()
+    );
 
     setDailyt((dailyt) =>
       dailyt.map((daily) => {
@@ -36,9 +36,13 @@ function App() {
   };
 
   const deleteDaily = async (id) => {
-    const data = await fetch(API_BASE + "/dailyt/delete/" + id, {
-      method: "DELETE",
-    }).then((res) => res.json());
+    const data = await fetch(
+      API_BASE,
+      { mode: "no-cors" } + "/dailyt/delete/" + id,
+      {
+        method: "DELETE",
+      }
+    ).then((res) => res.json());
 
     setDailyt((dailyt) =>
       dailyt.filter((daily) => daily._id !== data.result._id)
