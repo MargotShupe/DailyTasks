@@ -20,9 +20,9 @@ function App() {
   };
 
   const completeDaily = async (id) => {
-    const data = await fetch(API_BASE + "/dailyt/complete/" + id).then((res) =>
-      res.json()
-    );
+    const data = await fetch(API_BASE + "/dailyt/complete/" + id, {
+      method: "GET",
+    }).then((res) => res.json());
 
     setDailyt((dailyt) =>
       dailyt.map((daily) => {
