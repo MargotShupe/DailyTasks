@@ -6,7 +6,7 @@ require("dotenv").config();
 
 //after deploying frontend replace the localhost with the new http
 const corsOptions = {
-  origin: "https://mern-deploy1-frontend.onrender.com",
+  origin: "*",
 };
 //https://mern-deploy1-frontend.onrender.com
 app.use(express.json());
