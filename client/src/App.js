@@ -13,11 +13,7 @@ function App() {
   }, []);
 
   const GetDailyt = () => {
-    fetch(
-      API_BASE,
-      { method: "GET", headers: { "Content-Type": "application/json" } } +
-        "/dailyt"
-    )
+    fetch(API_BASE + "/dailyt")
       .then((res) => res.json())
       .then((data) => setDailyt(data))
       .catch((err) => console.error("Error: ", err));
