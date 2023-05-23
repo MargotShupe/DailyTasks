@@ -8,7 +8,7 @@ require("dotenv").config();
 const corsOptions = {
   origin: "https://mern-deploy1-frontend.onrender.com",
 };
-//https://mern-deploy1-frontend.onrender.com
+
 app.use(express.json());
 app.use(cors(corsOptions));
 
