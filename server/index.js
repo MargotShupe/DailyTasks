@@ -6,14 +6,14 @@ require("dotenv").config();
 
 //after deploying frontend replace the localhost with the new http
 const corsOptions = {
-  origin: "*",
+  origin: "https://mern-deploy1-frontend.onrender.com",
 };
 //https://mern-deploy1-frontend.onrender.com
 app.use(express.json());
 app.use(cors(corsOptions));
 
 mongoose
-  .connect(process.env.MONGODB_URL || "mongodb://0.0.0.0:27017/react-daily", {
+  .connect(process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/react-daily", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
