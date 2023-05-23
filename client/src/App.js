@@ -21,8 +21,15 @@ function App() {
 
   const completeDaily = async (id) => {
     const data = await fetch(
-      "https://mern-deploy1-backend.onrender.com",
-      { mode: "no-cors" } + "/dailyt/complete/" + id
+      API_BASE,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      } +
+        "/dailyt/complete/" +
+        id
     ).then((res) => res.json());
 
     setDailyt((dailyt) =>
