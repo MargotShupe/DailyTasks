@@ -37,6 +37,7 @@ function App() {
 
   const deleteDaily = async (id) => {
     const data = await fetch(API_BASE + "/dailyt/delete/" + id, {
+      mode: "no-cors",
       method: "DELETE",
     }).then((res) => res.json());
 
