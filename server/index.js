@@ -13,10 +13,14 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 mongoose
-  .connect(process.env.MONGODB_URL || "mongodb://127.0.0.1:27017/react-daily", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    process.env.MONGODB_URL ||
+      "mongodb+srv://testinguser:testinguser@mern-deploy.3hyscls.mongodb.net/?mern-deploy=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => console.log("Connected to MongoDB"))
   .catch(console.error);
 
