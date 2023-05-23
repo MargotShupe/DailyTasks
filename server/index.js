@@ -61,15 +61,15 @@ app.get("/dailyt/complete/:id", async (req, res) => {
   res.json(dailyt);
 });
 
-app.put("/dailyt/update/:id", async (req, res) => {
-  const dailyt = await Daily.findById(req.params.id);
+// app.put("/dailyt/update/:id", async (req, res) => {
+//   const dailyt = await Daily.findById(req.params.id);
 
-  dailyt.text = req.body.text;
+//   dailyt.text = req.body.text;
 
-  dailyt.save();
+//   dailyt.save();
 
-  res.json(dailyt);
-});
+//   res.json(dailyt);
+// });
 
 app.listen(3001, () => {
   console.log("Backend server is running! Hola");
