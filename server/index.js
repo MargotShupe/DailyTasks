@@ -51,17 +51,7 @@ app.delete("/dailyt/delete/:id", async (req, res) => {
 
 //testing by adding the id number in the localhost
 //testing const completeDaily with get request to fix error in cosole
-// app.get("/dailyt/complete/:id", async (req, res) => {
-//   const dailyt = await Daily.findById(req.params.id);
-
-//   dailyt.complete = !dailyt.complete;
-
-//   dailyt.save();
-
-//   res.json(dailyt);
-// });
-
-app.put("/dailyt/update/:id", async (req, res) => {
+app.get("/dailyt/complete/:id", async (req, res) => {
   const dailyt = await Daily.findById(req.params.id);
 
   dailyt.text = req.body.text;
@@ -70,6 +60,16 @@ app.put("/dailyt/update/:id", async (req, res) => {
 
   res.json(dailyt);
 });
+
+// app.patch("/dailyt/update/:id", async (req, res) => {
+//   const dailyt = await Daily.findById(req.params.id);
+
+//   dailyt.text = req.body.text;
+
+//   dailyt.save();
+
+//   res.json(dailyt);
+// });
 
 app.listen(3001, () => {
   console.log("Backend server is running! Hola");
