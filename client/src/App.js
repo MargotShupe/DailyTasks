@@ -13,7 +13,13 @@ function App() {
   }, []);
 
   const GetDailyt = () => {
-    fetch(API_BASE + "/dailyt")
+    fetch(API_BASE + "/dailyt", {
+      mode: "no-cors",
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => setDailyt(data))
       .catch((err) => console.error("Error: ", err));
@@ -39,6 +45,9 @@ function App() {
     const data = await fetch(API_BASE + "/dailyt/delete/" + id, {
       mode: "no-cors",
       method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
     }).then((res) => res.json());
 
     setDailyt((dailyt) =>
